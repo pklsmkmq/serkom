@@ -30,7 +30,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" action="#" id="quickForm">
+            <form method="POST" action="{{ route('savetarif') }}" id="quickForm">
               @csrf
               <div class="card-body">
                 <div class="form-group">

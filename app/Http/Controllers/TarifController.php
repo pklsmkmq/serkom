@@ -36,7 +36,12 @@ class TarifController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Tarif::create([
+            'daya' => $request->daya,
+            'tarifperkwh' => $request->tarifperkwh
+        ]);
+
+        return redirect()->route('tarif');
     }
 
     /**

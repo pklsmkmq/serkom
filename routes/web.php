@@ -22,3 +22,5 @@ Route::get('/tarif', [TarifController::class, "index"])->name('tarif');
 Route::get('/addtarif', function () {
     return view('addtarif');
 })->name('addtarif');
+
+Route::post('/savetarif', [TarifController::class, "store"])->name('savetarif');

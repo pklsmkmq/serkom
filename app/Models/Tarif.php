@@ -10,5 +10,4 @@ class Tarif extends Model
     use HasFactory;
     protected $table = "tarif";
     protected $fillable = ["daya","tarifperkwh"];
-
 }

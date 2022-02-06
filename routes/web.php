@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TarifController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('isidashboard');
 })->name('dashboard');
-Route::get('/tarif', function () {
-    return view('tarif');
-})->name('tarif');
+
+Route::get('/tarif', [TarifController::class, "index"])->name('tarif');
+
 Route::get('/addtarif', function () {
     return view('addtarif');
 })->name('addtarif');

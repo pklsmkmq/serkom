@@ -112,6 +112,18 @@ class TarifController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //mengambil data tarif yang idnya sesuai dengan parameter
+        //first mengambil data pertama
+        $data = Tarif::where('id',$id)->first();
+        if ($data) {
+            if ($data->delete()) {
+                return redirect()->route('tarif');
+            } else {
+                return abort("404");
+            }
+        } else {
+            //untuk mengalihkan ke page 404 atau halaman not found
+            return abort("404");
+        }
     }
 }

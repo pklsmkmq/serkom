@@ -26,3 +26,4 @@ Route::get('/addtarif', function () {
 Route::post('/savetarif', [TarifController::class, "store"])->name('savetarif');
 Route::get('/edittarif/{id}', [TarifController::class, "show"])->name('edittarif');
 Route::post('/updatetarif/{id}', [TarifController::class, "update"])->name('updatetarif');
+Route::get('/deletetarif/{id}', [TarifController::class, "destroy"])->name('deletetarif');

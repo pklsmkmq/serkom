@@ -43,7 +43,7 @@
                     <td>{{ $item->daya }}</td>
                     <td>{{ $item->tarifperkwh }}</td>
                     <td>
-                      <a href="{{ route('addtarif') }}"><button class="btn btn-warning">Update</button></a>
+                      <a href="{{ route('edittarif', $id = $item->id) }}"><button class="btn btn-warning">Update</button></a>
                       <a href="{{ route('addtarif') }}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                   </tr>

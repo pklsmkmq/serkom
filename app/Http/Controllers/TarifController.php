@@ -52,7 +52,16 @@ class TarifController extends Controller
      */
     public function show($id)
     {
-        //
+        //mengambil data tarif yang idnya sesuai dengan parameter
+        //first mengambil data pertama
+        $data = Tarif::where('id',$id)->first();
+        if ($data) {
+            return view('edittarif', ["data" => $data]);
+        } else {
+            //untuk mengalihkan ke page 404 atau halaman not found
+            return abort("404");
+        }
+        
     }
 
     /**
@@ -75,7 +84,24 @@ class TarifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Tarif::where('id',$id)->first();
+        if ($data) {
+            //merubah data yang sudah didapatkan dari database menjadi data yang didapatkan dari input di website
+            $data->daya = $request->daya;
+            $data->tarifperkwh = $request->tarifperkwh;
+            //proses menyimpan atau memperbaharui data yang sudah ada di database
+            $result = $data->save();
+
+            //pengecekan jika berhasil terubah maka akan kembali ke halaman tarif
+            if ($result) {
+                return redirect()->route('tarif');
+            } else {
+                return abort("404");
+            }
+        } else {
+            //untuk mengalihkan ke page 404 atau halaman not found
+            return abort("404");
+        }
     }
 
     /**
